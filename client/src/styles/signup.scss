@@ -1,0 +1,23 @@
+.wrap {
+  .body {
+    &.signup {
+      padding: 20px;
+    }
+    h1.title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    p.subText {
+      margin-bottom: 30px;
+    }
+    .singupBtns {
+      margin-bottom: 30px;
+      .signupBtn {
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  min-width: 320px;
+}

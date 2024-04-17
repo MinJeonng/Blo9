@@ -1,0 +1,61 @@
+@import './variables';
+@import './utils';
+
+// .postWriterInfo {
+//   width: 90%;
+//   display: flex;
+//   align-items: center;
+//   .writerImg {
+//     width: 32px;
+//     height: 32px;
+//     border-radius: 50%;
+//     margin-right: 10px;
+//   }
+//   .writerDetail {
+//     flex-direction: column;
+//     &.block {
+//       font-size: 20px;
+//       padding-bottom: 5px;
+//     }
+//   }
+// }
+// .postTitle {
+//   margin: 20px 0;
+//   line-height: 1.2;
+//   font-weight: 700;
+//   &.popular {
+//     width: 90%;
+//   }
+// }
+// @include mobile {
+//   .category {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     padding-left: 20px;
+//     // align-items: center;
+//     margin-top: 40px;
+//   }
+//   .popularPost {
+//     height: 400px;
+//   }
+//   .postTitle {
+//     font-size: 17px;
+//   }
+// }
+// @include desktop {
+//   .category {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     padding-left: 20px;
+//     // align-items: center;
+//     margin-top: 40px;
+//   }
+//   .popularPost {
+//     height: 770px;
+//   }
+//   .postTitle {
+//     font-size: 20px;
+//   }
+// }

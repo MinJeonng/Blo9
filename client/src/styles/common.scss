@@ -1,0 +1,158 @@
+$colorWh: #fff;
+$colorBk: #333;
+.wrap {
+  position: relative;
+  min-width: 320px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 270px;
+  button {
+    cursor: pointer;
+  }
+  svg {
+    cursor: pointer;
+  }
+  .headerBg {
+    background: $colorWh;
+    color: $colorBk;
+  }
+  .postHeader {
+    background: $colorWh;
+    color: $colorBk;
+    z-index: 90;
+  }
+  .sideMenu {
+    background: $colorWh;
+  }
+  .changeFill {
+    fill: $colorBk;
+  }
+  .changeStroke {
+    stroke: $colorBk;
+  }
+  .chatListBox.on {
+    color: $colorWh;
+    background: $colorBk;
+  }
+  .likesContainer {
+    .imgBox {
+      border: 6px solid $colorWh;
+    }
+  }
+  .postTopBox {
+    background: $colorWh;
+  }
+  .body {
+    padding: 20px;
+    box-sizing: border-box;
+    h1.title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    p.subText {
+      margin-bottom: 30px;
+    }
+    .singupBtns {
+      margin-bottom: 30px;
+      .signupBtn {
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+    @media (min-width: 1160px) {
+      padding: 0;
+      width: 1200px;
+      margin: 0 auto;
+      &.chat {
+        display: flex;
+        margin-bottom: 0 !important;
+        padding-bottom: 50px;
+        .chatlist {
+          width: 300px;
+          border-right: 1px solid #e2e7e2;
+          position: fixed;
+          top: 70px;
+          bottom: 50px;
+          left: 50%;
+          transform: translateX(-600px);
+          overflow: auto;
+        }
+        .chatMsgBox {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 20px 20px 20px 320px;
+        }
+      }
+    }
+  }
+  .blogHome {
+    @media (min-width: 1160px) {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  @media (min-width: 1160px) {
+    padding-bottom: 180px;
+  }
+}
+#root {
+  .darkmode {
+    .wrap {
+      background: $colorBk;
+      color: $colorWh;
+      .changeFill {
+        fill: $colorWh;
+      }
+      .changeStroke {
+        stroke: $colorWh;
+      }
+    }
+    .profileBox {
+      background: $colorBk;
+      border-bottom: 1px solid #e2e7e2;
+    }
+    .headerBg {
+      background: $colorBk;
+      color: $colorWh;
+      .menuList {
+        color: $colorWh;
+      }
+    }
+    .sideMenu {
+      background: $colorBk;
+    }
+    textarea {
+      color: $colorBk;
+    }
+    .chatListBox {
+      &.on {
+        color: $colorBk;
+        background: $colorWh;
+      }
+    }
+    .likesContainer {
+      .imgBox {
+        border: 6px solid $colorBk;
+      }
+    }
+    .postTopBox {
+      background: $colorBk;
+    }
+    .postHeader {
+      background: $colorBk;
+      button,
+      select {
+        color: $colorWh;
+      }
+    }
+    .ql-snow.ql-toolbar.ql-title,
+    .hashtag {
+      color: $colorWh;
+      background: $colorBk;
+    }
+    .commentArea {
+      color: $colorWh;
+    }
+  }
+}

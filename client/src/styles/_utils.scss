@@ -1,0 +1,30 @@
+.wrap {
+  .setting {
+    @media (min-width: 1160px) {
+      position: relative;
+      width: 1200px;
+      margin: 0 auto;
+      .settingPc {
+        width: 850px;
+        margin-left: 350px;
+        padding: 20px;
+        box-sizing: border-box;
+        .block {
+          flex: 7;
+          width: 100%;
+        }
+      }
+      .sideMenuPc {
+        position: fixed;
+        top: 0;
+        right: 50%;
+        width: 50%;
+        height: 100vh;
+        background-color: #f5f7f9;
+        flex: 3;
+        padding: 20px;
+        transform: translateX(-280px);
+      }
+    }
+  }
+}

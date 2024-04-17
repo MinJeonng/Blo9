@@ -1,0 +1,55 @@
+@import './variables';
+
+@include desktop {
+  .mainPostContainer {
+    margin-bottom: 70px;
+    display: flex;
+    margin: 0 auto;
+    width: 1200px;
+    justify-content: space-between;
+
+    .popularPost {
+      flex: 6;
+
+      box-sizing: border-box;
+      &.popPost {
+        padding: 0;
+      }
+    }
+    .popularInfo {
+      flex: 4.5;
+      margin-left: 10px;
+    }
+  }
+  .category {
+    width: 1200px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    &.main {
+      margin-bottom: 20px;
+      // margin-left: 150px;
+      font-size: 22px;
+    }
+  }
+  .categoryContainer {
+    // margin: 20px 200px;
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+.main-slide {
+  margin-bottom: 70px;
+}
+.category {
+  font-weight: 700;
+  font-size: 20px;
+}
+@include mobile {
+  .category {
+    margin: 0 20px;
+  }
+  .popularPost {
+    padding: 20px;
+  }
+}

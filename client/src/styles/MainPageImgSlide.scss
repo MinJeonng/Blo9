@@ -1,0 +1,85 @@
+@import './variables';
+@import './utils';
+
+.main-slide {
+  background-color: #ffcf58;
+  position: relative;
+
+  @include mobile {
+    .mainContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 500px;
+      align-items: center;
+    }
+    .mainText {
+      margin-bottom: 22px;
+      p {
+        font-size: 23px;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        text-align: center;
+      }
+      button {
+        align-items: center;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        width: fit-content;
+        padding: 10px 20px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .imgBorder {
+      @include circle;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  @include desktop {
+    .main-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .mainContainer {
+      display: flex;
+      justify-content: center;
+      height: 500px;
+      align-items: center;
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    .imgBorder {
+      @include circle;
+      width: 400px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mainText {
+      width: 700px;
+      p {
+        font-size: 27px;
+      }
+      button {
+        align-items: center;
+        margin-bottom: 27px;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        width: fit-content;
+        padding: 10px 20px;
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.postImg {
+  width: 100%;
+  height: 70vw;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.postText {
+  .blogPostTitle {
+    // text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .blogPostContent {
+    // text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* 표시할 최대 행 수 */
+    overflow: hidden;
+    max-width: 100%;
+    color: #7e7f81;
+    margin-bottom: 10px;
+  }
+  .postInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .postProfile {
+      display: flex;
+      align-items: center;
+      .profile {
+        margin-left: 10px;
+        .nickname {
+          margin-bottom: 6px;
+        }
+      }
+      .Date {
+        color: #7e7f81;
+        font-size: 13px;
+      }
+    }
+    .postInfoDetail {
+      display: flex;
+      gap: 15px;
+    }
+  }
+}
+.blogIcons {
+  display: flex;
+  align-items: center;
+  span {
+    display: inline-block;
+    margin-left: 4px;
+  }
+}
+.postBox {
+  &.vertical {
+    align-items: center;
+    width: 100%;
+    .postImg {
+      // width: 35%;
+      // height: 35vw;
+      width: 250px;
+      height: 200px;
+      margin: 0 10px 0 0;
+    }
+    .postText {
+      width: 65%;
+    }
+    @media (min-width: 1160px) {
+      width: 570px;
+    }
+  }
+}
