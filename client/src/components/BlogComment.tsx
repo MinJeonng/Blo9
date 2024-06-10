@@ -114,10 +114,7 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
             }
             onClick={() => setIsSecret(isSecret === 1 ? 0 : 1)}
           >
-            <img
-              src={`${process.env.PUBLIC_URL}/images/ico-secret.png`}
-              alt=""
-            />
+            <img src={`${process.env.PUBLIC_URL}/images/ico-secret.`} alt="" />
             <p>{isSecret ? '비밀댓글 해제' : '비밀댓글'}</p>
           </button>
           <button
