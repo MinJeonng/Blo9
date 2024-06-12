@@ -51,14 +51,14 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
       return;
     }
     if (newComment.trim() !== '') {
+      const finalIsSecret = isSecretComment === 1 ? 1 : isSecret; //db 들어가는 상태만 변경해주는 역할만 수행
       const res = await axios({
         method: 'POST',
         url: `${process.env.REACT_APP_HOST}/api/comment/addComment`,
         data: {
           memberId: user.id,
           content: newComment,
-          // isSecret,
-          isSecretComment,
+          isSecret: finalIsSecret,
           parentIndex: null,
           postId: Number(postId),
         },
