@@ -118,6 +118,7 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
             }
             onClick={() => setIsSecret(isSecret === 1 ? 0 : 1)}
           >
+
             {isSecret === 1 ? (
               <IconLock />
             ) : (
@@ -126,6 +127,7 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
                 alt=""
               />
             )}
+
             <p>{isSecret ? '비밀댓글 해제' : '비밀댓글'}</p>
           </button>
           <button

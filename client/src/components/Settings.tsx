@@ -1016,7 +1016,7 @@ export function SetBlog() {
       </ThemeBox>
       <ThemeBox bgcolor={customBg} txtcolor={customText}>
         <div className="text">
-          <p className="colorIcon"></p>
+          <p className="colorIcon"></p>x
           <div className="colorName custom">
             <p>색상 커스텀</p>
             <ErrorMsgGrey>* 색상은 #~~의 형태로 입력해주세요.</ErrorMsgGrey>
