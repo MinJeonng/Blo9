@@ -308,7 +308,6 @@ export function PostLike({
           </div>
 
           <div className="viewCount">{`${likeList.count}명이 좋아합니다.`}</div>
-          {/* </div> */}
         </div>
       </div>
       <CopyToClipboard
