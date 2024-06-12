@@ -95,6 +95,7 @@ export interface CommentObj {
   parentIndex: number | null;
   createdAt: string;
   nickname: string;
+  isSecretComment: number;
 }
 
 export interface WriterInfoObj {

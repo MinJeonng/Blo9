@@ -39,9 +39,9 @@ export default function MainPageImgSlide({ slides }: MainPageImgSlideProps) {
           >
             {slides[currentIndex].text}
           </p>
-          <button>
+          {/* <button>
             <Link to=""></Link>자세히 보기
-          </button>
+          </button> */}
         </div>
         <div
           className="imgBorder"

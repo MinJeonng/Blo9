@@ -99,6 +99,7 @@ const Text = styled.div`
 const BtnsWrap = styled.div`
   display: flex;
   align-items: center;
+  gap: 10px;
   p {
     margin-left: 10px;
   }
