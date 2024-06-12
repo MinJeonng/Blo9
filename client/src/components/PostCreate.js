@@ -142,11 +142,16 @@ function QuillEditor({ placeholder, value, ...rest }) {
         }
         return Number(category);
       };
+      const validHashtags = hashtag
+        .split(', ')
+        .map((tag) => tag.trim())
+        .filter((val) => val !== '' && val !== '#');
       const data = {
         postTitle: title,
         content: content,
         blogId: findBlog.data.result.id,
-        hashtag: hashtag.split(', ').filter((val) => val !== ''),
+        // hashtag: hashtag.split(', ').filter((val) => val !== ''),
+        hashtag: validHashtags,
         categoryId: categoryId(),
       };
       if (postId) {
@@ -173,17 +178,27 @@ function QuillEditor({ placeholder, value, ...rest }) {
       params: { id: postId },
     });
     const { categoryId, content, postTitle } = res.data.result;
-    let newString;
-    res.data.result.hashtag.map((val, idx) => {
+    // let newString;
+    // res.data.result.hashtag.map((val, idx) => {
+    //   if (idx > 0) {
+    //     newString += `, ${val}`;
+    //     setHashtag(newString);
+    //   } else {
+    //     newString = val;
+    //     setHashtag(newString);
+    //   }
+    //   return;
+    // });
+    // setTitle(postTitle);
+    let newString = '';
+    res.data.result.hashtag.forEach((val, idx) => {
       if (idx > 0) {
         newString += `, ${val}`;
-        setHashtag(newString);
       } else {
         newString = val;
-        setHashtag(newString);
       }
-      return;
     });
+    setHashtag(newString);
     setTitle(postTitle);
     if (categoryId) {
       setCategory(String(categoryId));
@@ -193,10 +208,14 @@ function QuillEditor({ placeholder, value, ...rest }) {
   };
   const checkKeyCode = (e) => {
     const kcode = e.keyCode;
-    if (kcode === 32) {
-      setHashtag(hashtag + ', #');
-    } else if (kcode === 13) {
-      setHashtag(hashtag + ', #');
+    // if (kcode === 32) {
+    //   setHashtag(hashtag + ', #');
+    // } else if (kcode === 13) {
+    //   setHashtag(hashtag + ', #');
+    // }
+    if (kcode === 32 || kcode === 13) {
+      e.preventDefault();
+      setHashtag((prevHashtag) => prevHashtag + ', #');
     }
   };
   const changeFunc = (e) => {

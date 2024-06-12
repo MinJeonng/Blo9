@@ -1,5 +1,3 @@
-//나중에 페이지네이션도 추가
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -9,13 +7,15 @@ import useAuth from '../hooks/useAuth';
 import { CommentObj, ThemeStyle } from '../types';
 import ProfileImage from './ProfileImage';
 import { ReactComponent as IcoArrLeft } from '../images/ico-arr-left.svg';
+import { ReactComponent as IconLock } from '../images/lock.svg';
+// import { LockClosedIcon } from '@heroicons/react/solid';
 import { getTimeText } from './Functions';
 
 const BlogComment = styled.div`
   padding: 20px;
-  img {
+  /* img {
     margin-bottom: 10px;
-  }
+  } */
   @media (min-width: 1160px) {
     width: 1200px;
     padding: 20px;
@@ -27,7 +27,8 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
   const { id, postId } = useParams<{ postId: string; id: string }>();
   const [user, setUser] = useAuth();
   const [comment, setComment] = useState<CommentObj[]>();
-  const [isSecret, setIsSecret] = useState<number>(0);
+  const [isSecret, setIsSecret] = useState<number>(0); //대댓글의 비밀댓글
+  const [isSecretComment, setIsSecretComment] = useState<number>(0); //댓글의 비밀댓글
 
   const [showComments, setShowComments] = useState<boolean>(false);
   const [newComment, setNewComment] = useState<string>('');
@@ -50,19 +51,21 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
       return;
     }
     if (newComment.trim() !== '') {
+      const finalIsSecret = isSecretComment === 1 ? 1 : isSecret; //db 들어가는 상태만 변경해주는 역할만 수행
       const res = await axios({
-        method: 'POST', // 수정: POST 메서드 사용
+        method: 'POST',
         url: `${process.env.REACT_APP_HOST}/api/comment/addComment`,
         data: {
           memberId: user.id,
           content: newComment,
-          isSecret,
+          isSecret: finalIsSecret,
           parentIndex: null,
           postId: Number(postId),
         },
       });
       setNewComment('');
       getComment();
+      setIsSecretComment(0);
     }
   };
 
@@ -89,6 +92,7 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
       setNewReply('');
       setReplyTo(null);
       getComment();
+      setIsSecret(0);
     }
   };
 
@@ -114,7 +118,16 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
             }
             onClick={() => setIsSecret(isSecret === 1 ? 0 : 1)}
           >
-            <img src={`${process.env.PUBLIC_URL}/images/ico-secret.`} alt="" />
+
+            {isSecret === 1 ? (
+              <IconLock />
+            ) : (
+              <img
+                src={`${process.env.PUBLIC_URL}/images/ico-secret.png`}
+                alt=""
+              />
+            )}
+
             <p>{isSecret ? '비밀댓글 해제' : '비밀댓글'}</p>
           </button>
           <button
@@ -148,6 +161,7 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
         memberId: user.id,
         content: editText,
         isSecret,
+        isSecretComment, //추가한거
         parentIndex: data.parentIndex,
         postId: Number(postId),
       },
@@ -196,8 +210,9 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
           {comment?.map((val) => {
             if (!val.parentIndex) {
               return (
-                <div className="commentBox">
-                  <div className="comment" key={val.id}>
+                <div className="commentBox" key={val.id}>
+                  {/* 이 아래에 key={val.id} */}
+                  <div className="comment">
                     <div className="commentWriter">
                       <div className="commentInfo">
                         <ProfileImage id={val.memberId} imgwidth="30px" />
@@ -233,6 +248,7 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
                           </div>
                         ))}
                     </div>
+                    {/* 이거아님 */}
                     {val.isSecret &&
                     user.id !== val.memberId &&
                     user.id !== Number(id) ? (
@@ -373,17 +389,21 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
             type="button"
             className="secretBtn"
             style={
-              isSecret
+              isSecretComment
                 ? theme
                 : { color: theme.background, background: theme.color }
             }
-            onClick={() => setIsSecret(isSecret === 1 ? 0 : 1)}
+            onClick={() => setIsSecretComment(isSecretComment === 1 ? 0 : 1)}
           >
-            <img
-              src={`${process.env.PUBLIC_URL}/images/ico-secret.png`}
-              alt=""
-            />
-            <p>{isSecret ? '비밀댓글 해제' : '비밀댓글'}</p>
+            {isSecretComment === 1 ? (
+              <IconLock />
+            ) : (
+              <img
+                src={`${process.env.PUBLIC_URL}/images/ico-secret.png`}
+                alt=""
+              />
+            )}
+            <p>{isSecretComment ? '비밀댓글 해제' : '비밀댓글'}</p>
           </button>
           <button
             type="button"
