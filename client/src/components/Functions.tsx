@@ -45,10 +45,19 @@ export const getTimeText = (time: string) => {
   let hDiff = (nowTime.getTime() - recentTime.getTime()) / (60 * 60 * 1000);
   if (hDiff < 24) {
     recentTime.getHours() <= 12
-      ? (displayTime = `오전 ${recentTime.getHours()}:${recentTime.getMinutes()}`)
-      : (displayTime = `오후 ${
-          recentTime.getHours() - 12
-        }:${recentTime.getMinutes()}`);
+      ? (displayTime = `오전 ${recentTime
+          .getHours()
+          .toString()
+          .padStart(2, '0')}:${recentTime
+          .getMinutes()
+          .toString()
+          .padStart(2, '0')}`)
+      : (displayTime = `오후 ${(recentTime.getHours() - 12)
+          .toString()
+          .padStart(2, '0')}:${recentTime
+          .getMinutes()
+          .toString()
+          .padStart(2, '0')}`);
   } else {
     displayTime = `${recentTime.getMonth() + 1}월 ${recentTime.getDate()}일`;
   }
