@@ -172,7 +172,7 @@ export function PostTitle({
           <div className="writer">{blog.nickname}</div>
           <div className="block1">
             <div className="date">
-              {getTimeText(post?.createdAt || '')} &#183;{' '}
+              {getTimeText(post?.createdAt || '')} &#183;
             </div>
             <div className="view">조회수 {post?.view || '0'}</div>
           </div>
