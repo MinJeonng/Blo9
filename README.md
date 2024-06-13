@@ -2,6 +2,11 @@
 
 블로그 웹 페이지 구현 프로젝트입니다:)
 
-## 프로젝트 기간
 
-2024.03.26 ~ 2024.04.16 (17일)
+
+## 멤버
+
+|                                         Backend                                          |                                         Frontend                                          |     
+| :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | 
+|  <img src="https://avatars.githubusercontent.com/u/154851961?v=1" width="130" height="130">  | <img src="https://avatars.githubusercontent.com/u/130037564?v=1" width="130" height="130"> |
+|                       [지은](https://github.com/cje206)                        |                            [민정](https://github.com/MinJeonng)                            |     
