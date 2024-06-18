@@ -39,29 +39,29 @@ export const getColor = (
 };
 
 export const getTimeText = (time: string) => {
-  let recentTime = new Date(time);
-  let nowTime = new Date();
-  let displayTime = '';
-  let hDiff = (nowTime.getTime() - recentTime.getTime()) / (60 * 60 * 1000);
-  if (hDiff < 24) {
-    recentTime.getHours() <= 12
-      ? (displayTime = `오전 ${recentTime
-          .getHours()
-          .toString()
-          .padStart(2, '0')}:${recentTime
-          .getMinutes()
-          .toString()
-          .padStart(2, '0')}`)
-      : (displayTime = `오후 ${(recentTime.getHours() - 12)
-          .toString()
-          .padStart(2, '0')}:${recentTime
-          .getMinutes()
-          .toString()
-          .padStart(2, '0')}`);
+  const recentTime = new Date(time);
+  const nowTime = new Date();
+
+  // 같은 날인지 확인
+  const isSameDay =
+    recentTime.getFullYear() === nowTime.getFullYear() &&
+    recentTime.getMonth() === nowTime.getMonth() &&
+    recentTime.getDate() === nowTime.getDate();
+
+  if (isSameDay) {
+    // 같은 날일 때 오전/오후 HH:MM 형식으로 표시
+    const hours = recentTime.getHours();
+    const minutes = recentTime.getMinutes().toString().padStart(2, '0');
+    const period = hours < 12 ? '오전' : '오후';
+    const formattedHours = (hours % 12 || 12).toString().padStart(2, '0');
+
+    return `${period} ${formattedHours}:${minutes}`;
   } else {
-    displayTime = `${recentTime.getMonth() + 1}월 ${recentTime.getDate()}일`;
+    // 다른 날일 때 ~월 ~일 형식으로 표시
+    return `${recentTime.getFullYear()}년 ${
+      recentTime.getMonth() + 1
+    }월 ${recentTime.getDate()}일`;
   }
-  return displayTime;
 };
 
 export const htmlToText = (html: string): string => {

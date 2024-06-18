@@ -118,7 +118,6 @@ export default function CommentComponent({ theme }: { theme: ThemeStyle }) {
             }
             onClick={() => setIsSecret(isSecret === 1 ? 0 : 1)}
           >
-
             {isSecret === 1 ? (
               <IconLock />
             ) : (
