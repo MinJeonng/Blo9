@@ -42,7 +42,7 @@ export const getTimeText = (time: string) => {
   const recentTime = new Date(time);
   const nowTime = new Date();
 
-  // 같은 날인지 확인
+  // 같은 날인지 확인함
   const isSameDay =
     recentTime.getFullYear() === nowTime.getFullYear() &&
     recentTime.getMonth() === nowTime.getMonth() &&
