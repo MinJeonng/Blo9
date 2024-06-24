@@ -99,7 +99,7 @@ const Text = styled.div`
 const BtnsWrap = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
   p {
     margin-left: 10px;
   }
@@ -142,7 +142,7 @@ export function MainHeader() {
             onClick={() => navigate('/search')}
             className="changeStroke"
           /> */}
-          <div></div>
+          <div style={{ width: '24px' }}></div>
         </header>
       </BoxStyle>
       {sidemenu && <DefaultSidemenu func={closeFunc} />}
@@ -236,10 +236,11 @@ export function SubHeader({ children }: { children: string }) {
             className="changeStroke"
           />
           <Text>{children}</Text>
-          <IcoSearch
+          {/* <IcoSearch
             onClick={() => navigate('/search')}
             className="changeStroke"
-          />
+          /> */}
+          <div></div>
         </header>
       </BoxStyle>
       {sidemenu && <DefaultSidemenu func={closeFunc} />}
@@ -310,7 +311,7 @@ export function BlogHeader({ id }: { id: number }) {
             {title}
           </Text>
           <BtnsWrap>
-            <IcoSearch stroke={theme.background} />
+            {/* <IcoSearch stroke={theme.background} /> */}
             <IcoMenuRight
               stroke={theme.background}
               onClick={() => setSidemenu(true)}
@@ -364,7 +365,7 @@ export function ChattingHeader() {
       <header>
         <Blo9Logo onClick={() => navigate('/')} className="changeFill" />
         <TextCenter>채팅</TextCenter>
-        <Icon $url="search"></Icon>
+        {/* <Icon $url="search"></Icon> */}
       </header>
     </BoxStyle>
   );
@@ -389,7 +390,7 @@ export function ChatDetailHeader({
           <ProfileImage id={id} imgwidth="40px" />
           <Title>{children}</Title>
         </BtnsWrap>
-        <Icon $url="search"></Icon>
+        {/* <Icon $url="search"></Icon> */}
       </header>
     </BoxStyle>
   );
