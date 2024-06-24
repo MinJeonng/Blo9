@@ -138,10 +138,11 @@ export function MainHeader() {
             className="changeStroke"
           />
           <Blo9Logo onClick={() => navigate('/')} className="changeFill" />
-          <IcoSearch
+          {/* <IcoSearch
             onClick={() => navigate('/search')}
             className="changeStroke"
-          />
+          /> */}
+          <div></div>
         </header>
       </BoxStyle>
       {sidemenu && <DefaultSidemenu func={closeFunc} />}
