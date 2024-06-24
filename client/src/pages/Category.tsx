@@ -48,7 +48,7 @@ export default function Category() {
     <>
       <div className="wrap">
         <BlogHeader id={Number(id)} />
-        <div className="body">
+        <div className="body" style={{ padding: '20px' }}>
           {post?.map((val) => (
             <ContentBox
               key={val.id}
