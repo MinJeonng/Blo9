@@ -110,6 +110,7 @@ const WriterInfo = styled.div`
     width: 100px;
     line-height: 30px;
     border-radius: 20px;
+    height: 40px;
   }
 `;
 

@@ -16,6 +16,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 const BlogMainContainer = styled.div<{ link?: string }>`
   display: flex;
   margin: 20px 20px 0 20px;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const BlogDetail = styled.div`
@@ -23,7 +25,7 @@ const BlogDetail = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-left: 20px;
+  padding-left: 10px;
   box-sizing: border-box;
   .nickName {
     display: flex;
@@ -106,12 +108,14 @@ export default function BlogMain({
         <BlogDetail>
           <div className="nickName">
             <p>{blogInfo?.nickname}</p>
-            {Boolean(user.id) && Number(id) !== user.id && (
-              <SubscribeBtn sub={subscribe} func={setSubscribe} />
-            )}
           </div>
           <div className="blogInfo">{blogInfo?.blogInfo}</div>
         </BlogDetail>
+        {Boolean(user.id) && Number(id) !== user.id ? (
+          <SubscribeBtn sub={subscribe} func={setSubscribe} />
+        ) : (
+          <div style={{ width: '100px' }}></div>
+        )}
       </BlogMainContainer>
       <div className="hr" style={theme}>
         <div className="linkChat">
