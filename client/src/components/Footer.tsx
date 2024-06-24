@@ -138,10 +138,13 @@ export default function Footer() {
                 </Span>
               </SpanWrapper>
               <LinkInfo>
-                <Link to="ppt 주소">
+                {/* <Link to="ppt 주소">
                   <img src="/images/ico-ppt.png" alt="ppt링크" />
-                </Link>
-                <Link to="https://github.com/cje206/99s.git" target="_blank">
+                </Link> */}
+                <Link
+                  to="https://github.com/MinJeonng/Blo9.git"
+                  target="_blank"
+                >
                   <img src="/images/ico-github.png" alt="github링크" />
                 </Link>
               </LinkInfo>

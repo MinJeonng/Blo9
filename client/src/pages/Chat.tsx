@@ -162,6 +162,7 @@ export default function Chat() {
               }
             })}
           </div>
+
           {chatData.open && (
             <InputChat userId={user.id} chatlist={[chatData, setChatData]} />
           )}

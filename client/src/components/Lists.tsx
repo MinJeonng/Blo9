@@ -203,8 +203,10 @@ export function PostLists({
         <img src={getThumbnail(post.content)} alt="Popular Post" />
       </div>
       <div className="postText">
-        <div className="blogPostTitle">{post?.postTitle}</div>
-        <div className="blogPostContent">{htmlToText(post?.content)}</div>
+        <div className="blogInfoStyle">
+          <div className="blogPostTitle">{post?.postTitle}</div>
+          <div className="blogPostContent">{htmlToText(post?.content)}</div>
+        </div>
         <div className="postInfo">
           <div className="postProfile">
             <ProfileImage id={memberId} imgwidth="40px" />
