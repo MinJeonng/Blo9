@@ -8,7 +8,6 @@ import { CommentObj, ThemeStyle } from '../types';
 import ProfileImage from './ProfileImage';
 import { ReactComponent as IcoArrLeft } from '../images/ico-arr-left.svg';
 import { ReactComponent as IconLock } from '../images/lock.svg';
-// import { LockClosedIcon } from '@heroicons/react/solid';
 import { getTimeText } from './Functions';
 
 const BlogComment = styled.div`

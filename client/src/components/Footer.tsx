@@ -34,6 +34,7 @@ const Logo = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 const Span = styled.div`
   align-items: center;
