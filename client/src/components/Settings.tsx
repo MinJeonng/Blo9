@@ -849,14 +849,9 @@ export function SetBlog() {
     }
   };
   const editFunc = async () => {
-    if (!nickname.trim()) {
-      alert('닉네임을 입력해주세요.');
-      return;
-    }
-    if (!blogTitle.trim()) {
-      alert('블로그 제목을 입력해주세요.');
-      return;
-    }
+    if (!nickname.trim() || !blogTitle.trim())
+      return alert('필수 항목을 입력하세요.');
+
     let imageUrl = uploadedImageUrl; // 기존 업로드된 이미지 URL 사용
     if (selectedFile && !uploadedImageUrl) {
       const uploadUrl = await uploadImage(selectedFile);

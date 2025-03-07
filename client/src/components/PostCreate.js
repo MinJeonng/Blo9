@@ -114,7 +114,9 @@ function QuillEditor({ placeholder, value, ...rest }) {
   const [postId, setPostId] = useState();
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   useEffect(() => {
-    window.addEventListener('resize', () => setInnerWidth(window.innerWidth));
+    const handleResize = () => setInnerWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize); // Cleanup 추가
   }, []);
 
   const getCategory = async () => {
@@ -130,7 +132,9 @@ function QuillEditor({ placeholder, value, ...rest }) {
       alert('내용을 입력해주세요');
       return;
     }
+
     const findBlog = await axios({
+      // 특정한 사용자 블로그 존재 여부를 체크하는 용도
       method: 'GET',
       url: `${process.env.REACT_APP_HOST}/api/blog/find`,
       params: { memberId: user.id },
@@ -171,6 +175,7 @@ function QuillEditor({ placeholder, value, ...rest }) {
       navigate('/setting/blog');
     }
   };
+  // 게시글 수정 시에 기존 내용 불러와야해서 필요
   const getPost = async () => {
     const res = await axios({
       method: 'GET',
@@ -190,14 +195,14 @@ function QuillEditor({ placeholder, value, ...rest }) {
     //   return;
     // });
     // setTitle(postTitle);
-    let newString = '';
-    res.data.result.hashtag.forEach((val, idx) => {
-      if (idx > 0) {
-        newString += `, ${val}`;
-      } else {
-        newString = val;
-      }
-    });
+    let newString = res.data.result.hashtag.join(', ');
+    // res.data.result.hashtag.forEach((val, idx) => {
+    //   if (idx > 0) {
+    //     newString += `, ${val}`;
+    //   } else {
+    //     newString = val;
+    //   }
+    // });
     setHashtag(newString);
     setTitle(postTitle);
     if (categoryId) {
@@ -214,6 +219,7 @@ function QuillEditor({ placeholder, value, ...rest }) {
     //   setHashtag(hashtag + ', #');
     // }
     if (kcode === 32 || kcode === 13) {
+      // Spacebar(32) 또는 Enter(13)
       e.preventDefault();
       setHashtag((prevHashtag) => prevHashtag + ', #');
     }
@@ -251,6 +257,7 @@ function QuillEditor({ placeholder, value, ...rest }) {
     }
   }, []);
   const getBlog = async () => {
+    // 블로그 정보를 가져오는 용도
     if (user.id) {
       const res = await axios({
         method: 'GET',

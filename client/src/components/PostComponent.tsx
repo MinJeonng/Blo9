@@ -247,12 +247,11 @@ export function PostLike({
   };
   const toggleLike = async () => {
     if (userid) {
-      const res = await axios({
-        method: 'POST',
-        url: `${process.env.REACT_APP_HOST}/api/post/clickLike`,
-        data: { memberId: userid, postId: postid },
+      await axios.post(`${process.env.REACT_APP_HOST}/api/post/clickLike`, {
+        memberId: userid,
+        postId: postid,
       });
-      setLike(!like);
+      setLike((prev) => !prev);
     } else {
       if (window.confirm('로그인 후 이용 가능합니다.')) {
         document.location.href = '/signup';
