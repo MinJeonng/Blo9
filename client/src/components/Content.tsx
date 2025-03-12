@@ -52,6 +52,7 @@ export default function Content({
       url: `${process.env.REACT_APP_HOST}/api/post/addView`,
       data: { blogId: blog.id, postId },
     });
+    console.log(res, 'addview');
   };
   useEffect(() => {
     getOtherPost();
